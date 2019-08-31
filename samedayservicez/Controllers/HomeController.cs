@@ -33,5 +33,13 @@ namespace samedayservicez.Controllers
 
             return View();
         }
+
+        public ActionResult CustomerLogin()
+        {
+            ViewBag.Message = "Your CustomerLogin page.";
+
+            return View();
+        }
+        
     }
 }
