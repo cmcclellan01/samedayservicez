@@ -1,0 +1,28 @@
+﻿body {
+    background-color: lightgray !important;
+    color:black !important;
+}
+
+.border-primary {
+    border-color: black !important;
+}
+
+.btn-primary {
+    border-color: #414F2B !important;
+    background-color: #414F2B !important;
+}
+
+.text-primary {
+    color: black !important;
+}
+.card {
+    background-color: #212529 !important;
+}
+.text-light {
+    color: grey !important;
+}
+
+.event-header {
+    border-bottom: 3px solid grey !important;
+    color: grey !important;
+}

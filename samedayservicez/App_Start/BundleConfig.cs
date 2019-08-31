@@ -23,8 +23,8 @@ namespace samedayservicez
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+           "~/Content/bootstrap.css",
+          "~/Content/site.css", "~/Content/theme.css", "~/Content/custom.css"));
         }
     }
 }
