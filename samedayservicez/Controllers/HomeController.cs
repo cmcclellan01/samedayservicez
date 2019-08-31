@@ -26,5 +26,12 @@ namespace samedayservicez.Controllers
 
             return View();
         }
+
+        public ActionResult Contractorlogin()
+        {
+            ViewBag.Message = "Your Contractorlogin page.";
+
+            return View();
+        }
     }
 }

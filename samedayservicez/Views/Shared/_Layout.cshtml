@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Cover My 6 Iowa</title>
+    <title>@ViewBag.Title - SameDay Servicez</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
@@ -40,7 +40,7 @@
             @*@Html.ActionLink(null, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             <div class="navbar-collapse collapse" id="navbarSupportedContent">
                 <img src="~/Content/logo.png" class="img-fluid  d-none d-lg-block" style="height:80px" onclick="location.href='@Url.Action("index", "Home")'" />
-
+                
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
                     <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
@@ -50,7 +50,7 @@
                             Contractors
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Login</a>
+                            <a class="dropdown-item" href="@Url.Action("Contractorlogin", "Home")">Login</a>
                             <a class="dropdown-item" href="#">Sign Up</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
@@ -69,10 +69,10 @@
                         </div>
                     </li>
                     @*<li class="nav-item">@Html.ActionLink("Events", "Events", "Home", null, new { @class = "nav-link" })</li>
-        <li class="nav-item">@Html.ActionLink("How We Help", "HowWeHelp", "Home", null, new { @class = "nav-link" })</li>*@
+            <li class="nav-item">@Html.ActionLink("How We Help", "HowWeHelp", "Home", null, new { @class = "nav-link" })</li>*@
                 </ul>
                 @*<button type="button" class="btn btn-primary align-bottom mr-1 d-none d-lg-block " onclick="location.href='@Url.Action("RequestForAssistance", "Home")'">Request Assistance</button>
-                <button type="button" class="btn btn-primary align-bottom mr-1 d-none d-lg-block " onclick="location.href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=4YU6HQK4TM4XL'">Donate</button>*@
+        <button type="button" class="btn btn-primary align-bottom mr-1 d-none d-lg-block " onclick="location.href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=4YU6HQK4TM4XL'">Donate</button>*@
 
 
             </div>
