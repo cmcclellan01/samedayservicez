@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "ContractorProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("ContractorProfileConfirm", "Contractor", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "ContractorProfileConfirm-form", role = "form"  }))
+{
+<form class="needs-validation" data-toggle="validator" oninput='up2.setCustomValidity(inputPassword.value != inputPasswordConfirm.value ? "Passwords do not match." : "")'>
+  
+   
+    <div class="card-body">
+        <h3> Start Contractor Registration</h3>
+        <div class="card card-custom">
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <!-- Full Name -->
+                    <label for="firstname" class="control-label text-light">First Name</label>*
+                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" required="required">
+                    <div class="invalid-feedback">
+                        Please provide your First Name.
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <!-- Full Name -->
+                    <label for="lastname" class="control-label text-light">Last Name</label>*
+                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="" required="required">
+                    <div class="invalid-feedback">
+                        Please provide your Last Name.
+                    </div>
+                </div>
+
+                <div class="form-group  col-md-4">
+                    <!-- email-->
+                    <label for="city_id" class="control-label text-light">Email Address</label>*
+                    <input type="text" class="form-control" id="email" name="email" placeholder=""  required="required" >
+                </div>
+            </div>
+            <!--Header-->
+
+        
+
+
+            <div class="form-row">
+                <div class="form-group col-md-4 ">
+                    <!-- Street 1 -->
+                    <label for="street1_id" class="control-label text-light">Password</label>*
+                    <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="" required="required">
+                </div>
+
+                <div class="form-group  col-md-4">
+                    <!-- City-->
+                    <label for="city_id" class="control-label text-light">Confirm Password</label>*
+                    <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="" required="required">
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group  col-md-4">
+                    <!-- Zip Code-->
+                    <label for="zip_id" class="control-label text-light">Zip Code</label>*
+                    <input class="form-control" id="zip" name="zip" placeholder="" required="required" type="tel" pattern="[0-9]*" max="99999" >
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12 ">
+                        <div class="form-group row">
+                            <div class="form-group col-md-12">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+    </div>
+</form>
+}
+<script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+    })();
+
+
+    $(document).ready(function () {
+        var password = document.getElementById("inputPassword")
+            , confirm_password = document.getElementById("inputPasswordConfirm");
+
+        function validatePassword() {
+            if (password.value != confirm_password.value) {
+                confirm_password.setCustomValidity("Passwords Don't Match");
+            } else {
+                confirm_password.setCustomValidity('');
+            }
+        }
+
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+
+
+
+
+
+
+
+    });
+
+   
+
+   
+
+</script>

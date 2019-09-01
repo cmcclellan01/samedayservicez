@@ -7,11 +7,12 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquerymask")
 </head>
 <body>
     <style>
         .text-primary {
-            color: red !important;
+            color: #FF550B !important;
         }
     </style>
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
@@ -50,10 +51,10 @@
                             Contractors
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Contractorlogin", "Home")">Login</a>
-                            <a class="dropdown-item" href="#">Sign Up</a>
+                            <a class="dropdown-item" href="@Url.Action("Contractorlogin", "Contractor")">Login</a>
+                            <a class="dropdown-item" href="@Url.Action("ContractorProfile", "Contractor")">Sign Up</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            @*<a class="dropdown-item" href="#">Something else here</a>*@
                         </div>
                     </li>
 
@@ -62,10 +63,10 @@
                             Customers
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("CustomerLogin", "Home")">Login</a>
+                            <a class="dropdown-item" href="@Url.Action("CustomerLogin", "Customer")">Login</a>
                             <a class="dropdown-item" href="#">Sign Up</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            @*<a class="dropdown-item" href="#">Something else here</a>*@
                         </div>
                     </li>
                     @*<li class="nav-item">@Html.ActionLink("Events", "Events", "Home", null, new { @class = "nav-link" })</li>
