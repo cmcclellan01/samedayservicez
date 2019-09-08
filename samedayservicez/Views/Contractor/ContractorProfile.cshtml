@@ -1,67 +1,126 @@
-﻿
+﻿@model samedayservicez.Models.ContractorRegistrationForm
 @{
     ViewBag.Title = "ContractorProfile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@using (Html.BeginForm("ContractorProfileConfirm", "Contractor", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "ContractorProfileConfirm-form", role = "form"  }))
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+@using (Html.BeginForm("ContractorProfile", "Contractor", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
 {
-<form class="needs-validation" data-toggle="validator" oninput='up2.setCustomValidity(inputPassword.value != inputPasswordConfirm.value ? "Passwords do not match." : "")'>
-  
-   
-    <div class="card-body">
-        <h3> Start Contractor Registration</h3>
-        <div class="card card-custom">
+    <form class="needs-validation" data-toggle="validator">
 
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <!-- Full Name -->
-                    <label for="firstname" class="control-label text-light">First Name</label>*
-                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" required="required">
-                    <div class="invalid-feedback">
-                        Please provide your First Name.
+
+        <div class="card-body">
+            <h3> Start Contractor Registration</h3>
+            <div class="card card-custom">
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.FirstName, new { @class = "control-label text-light" })
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.FirstName)
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.MiddleName, new { @class = "control-label text-light" })
+                        @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MiddleName)
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.LastName, new { @class = "control-label text-light" })
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LastName)
                     </div>
                 </div>
 
-                <div class="form-group col-md-4">
-                    <!-- Full Name -->
-                    <label for="lastname" class="control-label text-light">Last Name</label>*
-                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="" required="required">
-                    <div class="invalid-feedback">
-                        Please provide your Last Name.
+
+                <div class="form-row">
+                    <div class="form-group col-md-4 ">
+                        @Html.LabelFor(m => m.Address, new { @class = "control-label text-light" })
+                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Address)
                     </div>
+
+                    <div class="form-group  col-md-4">
+                        <!-- City-->
+                        @Html.LabelFor(m => m.City, new { @class = "control-label text-light" })
+                        @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.City)
+                    </div>
+
+
+                    <div class="form-group col-md-4 ">
+                        @Html.LabelFor(x => x.State, new { @class = "control-label text-light" })
+                        @Html.DropDownListFor(m => m.State, Model.States, "- Please select a state -", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.State)
+                    </div>
+
+
                 </div>
 
-                <div class="form-group  col-md-4">
-                    <!-- email-->
-                    <label for="city_id" class="control-label text-light">Email Address</label>*
-                    <input type="text" class="form-control" id="email" name="email" placeholder=""  required="required" >
-                </div>
-            </div>
-            <!--Header-->
+                <div class="form-row">
 
-        
+                    <div class="form-group  col-md-4">
+                        @Html.LabelFor(m => m.ZipCode, new { @class = "control-label text-light" })
+                        @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ZipCode)
+                    </div>
 
+                    <div class="form-group col-md-4 ">
+                        @Html.LabelFor(m => m.PhoneNumber, new { @class = "control-label text-light" })
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber)
+                    </div>
 
-            <div class="form-row">
-                <div class="form-group col-md-4 ">
-                    <!-- Street 1 -->
-                    <label for="street1_id" class="control-label text-light">Password</label>*
-                    <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="" required="required">
-                </div>
+                    <div class="form-group  col-md-4">
+                        @Html.LabelFor(m => m.Email, new { @class = "control-label text-light" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
 
-                <div class="form-group  col-md-4">
-                    <!-- City-->
-                    <label for="city_id" class="control-label text-light">Confirm Password</label>*
-                    <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="" required="required">
-                    <div class="help-block with-errors"></div>
                 </div>
 
-                <div class="form-group  col-md-4">
-                    <!-- Zip Code-->
-                    <label for="zip_id" class="control-label text-light">Zip Code</label>*
-                    <input class="form-control" id="zip" name="zip" placeholder="" required="required" type="tel" pattern="[0-9]*" max="99999" >
+
+
+
+                <div class="form-row">
+
+                    <div class="form-group  col-md-4">
+                        @Html.LabelFor(m => m.BirthDate, new { @class = "control-label text-light" })
+                        @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control"})
+                        @Html.ValidationMessageFor(model => model.BirthDate)
+                    </div>
+
+                    <div class="form-group col-md-4 ">
+                        @Html.LabelFor(m => m.Password, new { @class = "control-label text-light" })
+                        @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @type = "password" })
+                        @Html.ValidationMessageFor(model => model.Password)
+                    </div>
+
+                    <div class="form-group  col-md-4">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label text-light" })
+                        @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @type = "password" })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                    </div>
+
                 </div>
+
+
+                <div class="form-row">
+                    <div class="form-group  col-md-8">
+                        @Html.LabelFor(m => m.Bio, new { @class = "control-label text-light" })
+                        @Html.TextAreaFor(m => m.Bio, new { @class = "form-control",rows="6", cols="15", @style="max-width:500px!important"})
+                        @Html.ValidationMessageFor(model => model.Bio)
+                    </div>
+
+                </div>
+
+
 
                 <div class="form-row">
                     <div class="form-group col-md-12 ">
@@ -73,57 +132,17 @@
                     </div>
                 </div>
             </div>
-
-            </div>
-    </div>
-</form>
+        </div>
+    </form>
 }
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/ui-darkness/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function () {
-            'use strict';
-            window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-    })();
-
-
-    $(document).ready(function () {
-        var password = document.getElementById("inputPassword")
-            , confirm_password = document.getElementById("inputPasswordConfirm");
-
-        function validatePassword() {
-            if (password.value != confirm_password.value) {
-                confirm_password.setCustomValidity("Passwords Don't Match");
-            } else {
-                confirm_password.setCustomValidity('');
-            }
-        }
-
-        password.onchange = validatePassword;
-        confirm_password.onkeyup = validatePassword;
-
-
-
-
-
-
-
+    $('#BirthDate').datepicker({
+        uiLibrary: 'bootstrap4'
     });
-
-   
-
-   
-
 </script>
