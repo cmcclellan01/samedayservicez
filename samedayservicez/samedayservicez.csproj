@@ -129,13 +129,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ContractorRegistrationFormsController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909081848435_InitialCreate.cs" />
+    <Compile Include="Migrations\201909081848435_InitialCreate.Designer.cs">
+      <DependentUpon>201909081848435_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ContractorRegForm.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Extensions.cs" />
   </ItemGroup>
@@ -227,6 +234,16 @@
     <Content Include="Views\Customer\CustomerLogin.cshtml" />
     <Content Include="Views\Contractor\ContractorProfile.cshtml" />
     <Content Include="Views\Contractor\ContractorProfileConfirm.cshtml" />
+    <Content Include="Views\ContractorRegistrationForms\Create.cshtml" />
+    <Content Include="Views\ContractorRegistrationForms\Delete.cshtml" />
+    <Content Include="Views\ContractorRegistrationForms\Details.cshtml" />
+    <Content Include="Views\ContractorRegistrationForms\Edit.cshtml" />
+    <Content Include="Views\ContractorRegistrationForms\Index.cshtml" />
+    <Content Include="Views\Logins\Create.cshtml" />
+    <Content Include="Views\Logins\Delete.cshtml" />
+    <Content Include="Views\Logins\Details.cshtml" />
+    <Content Include="Views\Logins\Edit.cshtml" />
+    <Content Include="Views\Logins\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -239,6 +256,11 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201909081848435_InitialCreate.resx">
+      <DependentUpon>201909081848435_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

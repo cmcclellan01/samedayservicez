@@ -2,14 +2,24 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Web.Mvc;
 
 namespace samedayservicez.Models
 {
+
+    public class samedayservicezContext : DbContext
+    {
+        public DbSet<ContractorRegistrationForm> Contractors { get; set; }
+        public DbSet<Login> Login { get; set; }
+    }
+
     public class ContractorRegistrationForm
     {
 
-       
+        public int ID { get; set; }
+
         [Required(ErrorMessage = "Please Enter Your First Name",
             AllowEmptyStrings = false)]
         [Display(Name = "First Name")]
@@ -72,14 +82,17 @@ namespace samedayservicez.Models
 
         [Required(ErrorMessage = "Please Enter a Password",
       AllowEmptyStrings = false)]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        [NotMapped]
+        [DataType(DataType.Password)]
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "Confirm password doesn't match, Try Again!")]
         public string ConfirmPassword { get; set; }
 
 
         [Required(ErrorMessage = "Choose date of birth")]
-        [Display(Name = "Date of Birth")]
+        [Display(Name = "Date of Birth")]     
         [DataType(DataType.Date)]
         public DateTime? BirthDate { get; set; }
 
@@ -89,5 +102,8 @@ namespace samedayservicez.Models
         [Display(Name = "Bio")]
         public string Bio { get; set; }
 
+
+        public bool IsInContractorMode { get; set; }
+        public bool IsInCustomerMode { get; set; }
     }
 }

@@ -1,66 +1,78 @@
-﻿
+﻿@model samedayservicez.Models.Login
 @{
     ViewBag.Title = "Contractorlogin";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using (Html.BeginForm("Contractorlogin", "Contractor", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+{
+    <form class="needs-validation" data-toggle="validator">
 
-<div class="container h-100">
-    <div class="d-flex justify-content-center h-100">
-        <div class="user_card">
-            <div class="d-flex justify-content-center">
-                <div class="brand_logo_container">
-                    <img src="~/Content/LOGo.png" class="brand_logo" alt="Logo">
-                    <span class="text-light">Contractor Login </span>
-                </div>
-            </div>
-            <div class="d-flex justify-content-center form_container">
-                <form>
-                    <div class="input-group mb-3">
-                        @*<div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        </div>*@
-                        <input type="text" name="" class="form-control input_user" value="" placeholder="username">
-                    </div>
-                    <div class="input-group mb-2">
-                        @*<div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        </div>*@
-                        <input type="password" name="" class="form-control input_pass" value="" placeholder="password">
-                    </div>
-                    <div class="form-group">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customControlInline">
-                            <label class="custom-control-label text-light" for="customControlInline">Remember me</label>
+        <div class="container h-100">
+            <div class="d-flex justify-content-center h-100">
+                <div class="user_card">
+                    <div class="d-flex justify-content-center" style="padding-top:100px">
+                        <div class="brand_logo_container">
+                            <img src="~/Content/LOGo.png" class="brand_logo" alt="Logo">
+                            <span class="text-light">Contractor Login </span>
                         </div>
                     </div>
-                </form>
-            </div>
-            <div class="d-flex justify-content-center mt-3 login_container">
-                <button type="button" name="button" class="btn login_btn">Login</button>
-            </div>
-            <div class="mt-4">
-                <div class="d-flex justify-content-center links text-light">
-                    Don't have an account? <a href="@Url.Action("ContractorProfile", "Contractor")" class="ml-2 text-light">Sign Up</a>
-                </div>
-                <div class="d-flex justify-content-center links">
-                    <a href="#" class=" text-primary">Forgot your password?</a>
+                    <div class="justify-content-center ">
+
+                        <div class="form-row">
+                            <div class="form-group  col-md-12">
+                                @*<input type="text" name="" class="form-control input_user" value="" placeholder="email">*@
+
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control input_user", @placeholder = "email", @value = "" })
+                                @Html.ValidationMessageFor(model => model.Email)
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group  col-md-12">
+                                @*<input type="password" name="" class="form-control input_pass" value="" placeholder="password">*@
+
+                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control input_pass", @type = "password", @placeholder = "password", @value = "" })
+                                @Html.ValidationMessageFor(model => model.Password)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customControlInline">
+                                <label class="custom-control-label text-light" for="customControlInline">Remember me</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <button type="submit" class="btn login_btn">Login</button>
+                    </div>
+                    <div class="mt-4">
+                        <div class="d-flex justify-content-center links text-light">
+                            Don't have an account? <a href="@Url.Action("ContractorProfile", "Contractor")" class="ml-2 text-light">Sign Up</a>
+                        </div>
+                        <div class="d-flex justify-content-center links">
+                            <a href="#" class=" text-primary">Forgot your password?</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </form>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
 
 <style>
 
     .body-content {
         padding-top: 140px !important;
     }
+
     .user_card {
         height: 400px;
         width: 350px;
         margin-top: auto;
         margin-bottom: auto;
-        background: #212529;        
+        background: #212529;
         position: relative;
         display: flex;
         justify-content: center;
